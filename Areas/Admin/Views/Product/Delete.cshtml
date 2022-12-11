@@ -1,0 +1,87 @@
+﻿@using OnlineShop.Models
+@model product
+@{
+    ViewData["Title"] = "Delete";
+
+    <h2 class="text-info">Product Delete</h2>
+    <form asp-action="Delete" method="post" enctype="multipart/form-data">
+        <div class="p-4 rounded border row">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+
+            </div>
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="productName">Name: </label>
+                    </div>
+                    <div class="col-8">
+                        <input type="hidden" asp-for="productId" />
+                        <input asp-for="productName" readonly="readonly" class="form-control" />
+                    </div>
+                    <span asp-validation-for="productName" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="productPrice">Price: </label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="productPrice" readonly="readonly" class="form-control" />
+                    </div>
+                    <span asp-validation-for="productPrice" class="text-danger"></span>
+                </div>
+                @*<div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="productImage"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="productImage" class="form-control" type="file" />
+                        </div>
+                        <span asp-validation-for="productImage" class="text-danger"></span>
+                    </div>*@
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="productColor">Color: </label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="productColor" readonly="readonly" readonly="readonly" class="form-control" />
+                    </div>
+                    <span asp-validation-for="productColor" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="productCategory">Category: </label>
+                    </div>
+                    <div class="col-8">
+                        @*<select asp-for="productCategoryId" asp-items="ViewBag.productCategoryId" class="form-control"></select>*@
+                        <input asp-for="productCategoryId" readonly="readonly" class="form-control" />
+                    </div>
+                    <span asp-validation-for="productCategoryId" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="IsAvailable">Availability: </label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="IsAvailable" disabled="disabled" class="" type="checkbox" />
+                    </div>
+                    <span asp-validation-for="IsAvailable" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h3>Do you want to delete this product ?</h3>
+                    <input type="submit" asp-action="Delete" asp-route-id="@Model.productId" class="btn btn-danger" value="Delete" />
+                    <a asp-action="Index" class="btn btn-success">Back to List</a>
+                </div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-3">
+                <img src="~/@Model.productImage" width="100%" height="250px" style="border-radius: 5px;border: 1px solid #efefef" />
+            </div>
+
+        </div>
+    </form>
+}
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

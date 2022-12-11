@@ -1,0 +1,87 @@
+﻿@using OnlineShop.Models
+@model product
+@{
+    ViewData["Title"] = "Details";
+
+    <h2 class="text-info">Product Details</h2>
+    <form asp-action="" method="post" enctype="multipart/form-data">
+        <div class="p-4 rounded border row">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+
+            </div>
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="productName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input type="hidden" asp-for="productId" />
+                        <input asp-for="productName" readonly="readonly" class="form-control" />
+                    </div>
+                    <span asp-validation-for="productName" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="productPrice"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="productPrice" readonly="readonly" class="form-control" />
+                    </div>
+                    <span asp-validation-for="productPrice" class="text-danger"></span>
+                </div>
+                @*<div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="productImage"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="productImage" class="form-control" type="file" />
+                    </div>
+                    <span asp-validation-for="productImage" class="text-danger"></span>
+                </div>*@
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="productColor"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="productColor" readonly="readonly" readonly="readonly" class="form-control" />
+                    </div>
+                    <span asp-validation-for="productColor" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="productCategoryId"></label>
+                    </div>
+                    <div class="col-8">
+                        @*<select asp-for="ProductTypeId" asp-items="ViewBag.productTypeId" class="form-control"></select>*@
+                        <input asp-for="productCategoryId" readonly="readonly" class="form-control" />
+                    </div>
+                    <span asp-validation-for="productCategoryId" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="IsAvailable"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="IsAvailable" disabled="disabled" class="" type="checkbox" />
+                    </div>
+                    <span asp-validation-for="IsAvailable" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <a type="button" asp-action="Edit"  asp-route-id="@Model.productId" class="btn btn-primary" >Edit</a>
+                    <a asp-action="Index" class="btn btn-success">Back to List</a>
+                </div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-3">
+                <img src="~/@Model.productImage" width="100%" height="250px" style="border-radius: 5px;border: 1px solid #efefef" />
+            </div>
+
+        </div>
+    </form>
+}
+
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

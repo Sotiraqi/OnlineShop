@@ -1,4 +1,19 @@
-﻿<!DOCTYPE html>
+﻿@using System.Net.Http
+@using OnlineShop.Extensions;
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    int count = 0;
+    List<product> products = HttpContextAccessor.HttpContext.Session.Get<List<product>>("product");
+    if (products == null)
+    {
+        products = new List<product>();
+    }
+    count = products.Count();
+
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -33,7 +48,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Admin" asp-controller="Product" asp-action="Index">Products</a>
+                            
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Cart">Cart(@count)</a>
+                        </li>
+                        
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

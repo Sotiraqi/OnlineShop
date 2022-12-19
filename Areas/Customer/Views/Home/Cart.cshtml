@@ -28,7 +28,7 @@
                 </td>
                 <td>@item.productName</td>
                 <td>@item.productPrice</td>
-                <td>@item.productCategory.categoryName</td>
+                <td>@item.productCategory!.categoryName</td>
                 <td>@item.productColor</td>
                 <td>
                     <a asp-area="Customer" asp-action="Remove" asp-controller="Home" asp-route-id="@item.productId" class="btn btn-danger">Remove              

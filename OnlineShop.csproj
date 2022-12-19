@@ -9,13 +9,17 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.10" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.12" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.11" />
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
 	<PackageReference Include="X.PagedList.Mvc.Core" Version="7.6.0" />
   </ItemGroup>
 
@@ -37,10 +41,23 @@
     <None Include="Areas\Admin\Views\Product\Details.cshtml" />
     <None Include="Areas\Admin\Views\Product\Edit.cshtml" />
     <None Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <None Include="Areas\Admin\Views\Role\Assign.cshtml" />
+    <None Include="Areas\Admin\Views\Role\AssignUserRole.cshtml" />
+    <None Include="Areas\Admin\Views\Role\Create.cshtml" />
+    <None Include="Areas\Admin\Views\Role\Delete.cshtml" />
+    <None Include="Areas\Admin\Views\Role\Edit.cshtml" />
+    <None Include="Areas\Admin\Views\Role\Index.cshtml" />
+    <None Include="Areas\Customer\Views\User\Active.cshtml" />
+    <None Include="Areas\Customer\Views\User\Create.cshtml" />
+    <None Include="Areas\Customer\Views\User\Delete.cshtml" />
+    <None Include="Areas\Customer\Views\User\Details.cshtml" />
+    <None Include="Areas\Customer\Views\User\Edit.cshtml" />
+    <None Include="Areas\Customer\Views\User\Index.cshtml" />
+    <None Include="Areas\Customer\Views\User\Lockout.cshtml" />
     <None Include="wwwroot\Images\bluza.jpeg" />
     <None Include="wwwroot\Images\dolce1.png" />
     <None Include="wwwroot\Images\dolce2.png" />
-    <None Include="wwwroot\Images\moncler1.png" />
+    <None Include="wwwroot\Images\moncler1.jpg" />
   </ItemGroup>
 
 </Project>

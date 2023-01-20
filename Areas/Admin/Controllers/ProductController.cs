@@ -45,10 +45,10 @@ namespace OnlineShop.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(product product, IFormFile image)
         {
-            //if (ModelState.IsValid)
+            if (ModelState.IsValid)
             
-            ModelState.ClearValidationState(nameof(product));
-            if (!TryValidateModel(product, nameof(product)))
+            //ModelState.ClearValidationState(nameof(product));
+            //if (!TryValidateModel(product, nameof(product)))
             {
                 var searchProduct = _db.products?.FirstOrDefault(c => c.productName == product.productName);
                 if (searchProduct != null)
@@ -99,9 +99,9 @@ namespace OnlineShop.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(product product, IFormFile image)
         {
-            //if (ModelState.IsValid)
-            ModelState.ClearValidationState(nameof(product));
-            if (!TryValidateModel(product, nameof(product)))
+            if (ModelState.IsValid)
+            //ModelState.ClearValidationState(nameof(product));
+            //if (!TryValidateModel(product, nameof(product)))
             {
                 if (image != null)
                 {
